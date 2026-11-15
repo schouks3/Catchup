@@ -1,0 +1,25 @@
+{
+  "name": "catchup",
+  "private": true,
+  "version": "0.1.0",
+  "description": "Catch campus events, tabling and career fairs as critters, and actually keep up with what you learned.",
+  "workspaces": [
+    "packages/*",
+    "apps/*"
+  ],
+  "scripts": {
+    "art": "node scripts/build-art.mjs",
+    "test": "npm run test -w @catchup/shared && npm run test -w @catchup/api",
+    "typecheck": "npm run typecheck -w @catchup/shared && npm run typecheck -w @catchup/api && npm run typecheck -w @catchup/mobile",
+    "dev:api": "npm run dev -w @catchup/api",
+    "seed": "npm run seed -w @catchup/api",
+    "prototype": "node scripts/build-prototype.mjs"
+  },
+  "devDependencies": {
+    "esbuild": "^0.28.2",
+    "typescript": "^7.0.2"
+  },
+  "engines": {
+    "node": ">=22"
+  }
+}

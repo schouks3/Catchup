@@ -1,0 +1,15 @@
+# Optional: a real Postgres for staging-like local runs.
+# Default dev uses PGlite (embedded), so you only need this when you want parity with prod.
+services:
+  db:
+    image: postgres:17
+    environment:
+      POSTGRES_USER: catchup
+      POSTGRES_PASSWORD: catchup
+      POSTGRES_DB: catchup
+    ports:
+      - "5432:5432"
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+volumes:
+  pgdata:
